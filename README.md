@@ -35,6 +35,7 @@ The application used in this pipeline is a JAX-RS application which is available
 
 ## Prerequisites
 * 10+ GB memory
+* Tag openshift/wildfly-101-centos7 image stream with a version `oc tag openshift/wildfly-101-centos7 openshift/wildfly-101-centos7:v10.1` for wildfly 10.1 (base of eap 7.0)
 
 ## Automated Deploy on OpenShift Origin
 You can se the `scripts/provision.sh` script provided to deploy the entire demo:
