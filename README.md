@@ -1,7 +1,7 @@
 # CI/CD Demo - OpenShift Origin 3.9
 This repository is a fork of https://github.com/OpenShiftDemos/openshift-cd-demo with the target to support OpenShift Origin 3.9 (the open source version of OpenShift Container Plattform).
 
-This project under development and does not work on OpenShift Origin yet.
+This project is under development and does not work on OpenShift Origin yet.
 
 It includes the infrastructure and pipeline definition for continuous delivery using Jenkins, Nexus, SonarQube and Eclipse Che on OpenShift Origin. 
 
