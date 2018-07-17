@@ -121,6 +121,9 @@ function deploy() {
   oc $ARG_OC_OPS new-project stage-$PRJ_SUFFIX --display-name="Tasks - Stage"
   oc $ARG_OC_OPS new-project cicd-$PRJ_SUFFIX  --display-name="CI/CD"
 
+  echo "Tagging latest openshift/wildfly-101-centos7"
+  oc tag openshift/wildfly-101-centos7 openshift/wildfly-101-centos7:v10.1
+
   sleep 2
 
   oc $ARG_OC_OPS policy add-role-to-user edit system:serviceaccount:cicd-$PRJ_SUFFIX:jenkins -n dev-$PRJ_SUFFIX
