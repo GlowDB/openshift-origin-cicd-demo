@@ -1,8 +1,9 @@
-*For other versions of OpenShift, follow the instructions in the corresponding branch e.g. ocp-3.9, ocp-3.7, etc
+# CI/CD Demo - OpenShift Origin 3.9
+This repository is a fork of https://github.com/OpenShiftDemos/openshift-cd-demo with the target to support OpenShift Origin 3.9 (the open source version of OpenShift Container Plattform).
 
-# CI/CD Demo - OpenShift Container Platform 3.9
+This project under development and does not work on OpenShift Origin yet.
 
-This repository includes the infrastructure and pipeline definition for continuous delivery using Jenkins, Nexus, SonarQube and Eclipse Che on OpenShift. 
+It includes the infrastructure and pipeline definition for continuous delivery using Jenkins, Nexus, SonarQube and Eclipse Che on OpenShift Origin. 
 
 * [Introduction](#introduction)
 * [Prerequisites](#prerequisites)
@@ -34,13 +35,8 @@ The application used in this pipeline is a JAX-RS application which is available
 
 ## Prerequisites
 * 10+ GB memory
-* JBoss EAP 7 imagestreams imported to OpenShift (see Troubleshooting section for details)
 
-## Deploy on RHPDS
-
-If you have access to RHPDS, provisioning of this demo is automated via the service catalog under **OpenShift Demos &rarr; OpenShift CI/CD for Monolith**. If you don't know what RHPDS is, read the instructions in the next section.
-
-## Automated Deploy on OpenShift
+## Automated Deploy on OpenShift Origin
 You can se the `scripts/provision.sh` script provided to deploy the entire demo:
 
   ```
@@ -49,7 +45,7 @@ You can se the `scripts/provision.sh` script provided to deploy the entire demo:
   ./provision.sh delete 
   ```
   
-## Manual Deploy on OpenShift
+## Manual Deploy on OpenShift Origin
 Follow these [instructions](docs/local-cluster.md) in order to create a local OpenShift cluster. Otherwise using your current OpenShift cluster, create the following projects for CI/CD components, Dev and Stage environments:
 
   ```shell
@@ -80,13 +76,8 @@ your own names and use the following to create the demo:
   oc new-app -n cicd -f cicd-template.yaml --param DEV_PROJECT=dev-project-name --param STAGE_PROJECT=stage-project-name
   ```
 
-
 ## Troubleshooting
 
-* If pipeline execution fails with ```error: no match for "jboss-eap70-openshift"```, import the jboss imagestreams in OpenShift.
-  ```
-  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.12/eap/eap70-image-stream.json -n openshift
-  ```
 * If Maven fails with `/opt/rh/rh-maven33/root/usr/bin/mvn: line 9:   298 Killed` (e.g. during static analysis), you are running out of memory and need more memory for OpenShift.
 
 ## Demo Guide
